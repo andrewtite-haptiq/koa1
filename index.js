@@ -10,16 +10,16 @@ const app = new Koa();
 // add method to ctx
 app.context.date = Date();
 // add property to ctx
-// app.context.userData = {
-//   first: 'Andrew',
-//   last: 'Tite',
-// };
+app.context.userData = {
+  first: 'Andrew',
+  last: 'Tite',
+};
 
-app.use(ctx => {
-  if (ctx.userData) {
-    return (ctx.body = `Hello ${ctx.userData.first} ${ctx.userData.last}`);
-  } else {
-    return ctx.throw(_ERRORS.UNAUTHORIZED.code, 'data required');
+app.use(async (ctx) => {
+  try {
+    return ctx.response.body = await ctx.userData;
+  } catch (err) {
+    return ctx.throw(_ERRORS.INVALID_REQUEST.code, err);
   }
 });
 
