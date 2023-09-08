@@ -1,0 +1,16 @@
+{
+  "name": "test-koa-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Andrew Tite",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "koa": "^2.14.2",
+    "nodemon": "^3.0.1"
+  }
+}
